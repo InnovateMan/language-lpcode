@@ -1,0 +1,64 @@
+'.source.lpcode':
+  quoted:
+    prefix: 'quo'
+    body: '\'($0)'
+  class:
+    prefix: 'class'
+    body: '(class ${1:name} is ${2:superclas}\n$0)'
+  defmethod:
+    prefix: 'method'
+    body: '(- (${1:ret-type}) ${2:method-name} is \n$0)'
+  defmethod1:
+    prefix: 'method1'
+    body: '(- (${1:ret-type}) ${2:method-name}: (${3:param1-type}) ${4:param1-name} is \n$0)'
+  defmethod2:
+    prefix: 'method2'
+    body: '(- (${1:ret-type}) ${2:method-name}: (${3:param1-type}) ${4:param1-name} ${5:param2-des}:(${6:param2-type}) ${7:param2-name} is \n$0)'
+
+  defmethod3:
+    prefix: 'method3'
+    body: '(- (${1:ret-type}) ${2:method-name}: (${3:param1-type}) ${4:param1-name} ${5:param2-des}:(${6:param2-type}) ${7:param2-name} ${8:param3-des}:(${9:param3-type}) ${10:param3-name} is \n$0)'
+  defmethod4:
+    prefix: 'method4'
+    body: '(- (${1:ret-type}) ${2:method-name}: (${3:param1-type}) ${4:param1-name} ${5:param2-des}:(${6:param2-type}) ${7:param2-name} ${8:param3-des}:(${9:param3-type}) ${10:param3-name} ${11:param4-des}:(${12:param4-type}) ${13:param4-name} is \n$0)'
+
+  defcmethod:
+    prefix: 'cmethod'
+    body: '(+ (${1:ret-type}) ${2:method-name} is \n$0)'
+  defcmethod1:
+    prefix: 'cmethod1'
+    body: '(+ (${1:ret-type}) ${2:method-name}: (${3:param1-type}) ${4:param1-name} is \n$0)'
+  defcmethod2:
+    prefix: 'cmethod2'
+    body: '(+ (${1:ret-type}) ${2:method-name}: (${3:param1-type}) ${4:param1-name} ${5:param2-des}:(${6:param2-type}) ${7:param2-name} is \n$0)'
+
+  defcmethod3:
+    prefix: 'cmethod3'
+    body: '(- (${1:ret-type}) ${2:method-name}: (${3:param1-type}) ${4:param1-name} ${5:param2-des}:(${6:param2-type}) ${7:param2-name} ${8:param3-des}:(${9:param3-type}) ${10:param3-name} is \n$0)'
+  defcmethod4:
+    prefix: 'cmethod4'
+    body: '(+ (${1:ret-type}) ${2:method-name}: (${3:param1-type}) ${4:param1-name} ${5:param2-des}:(${6:param2-type}) ${7:param2-name} ${8:param3-des}:(${9:param3-type}) ${10:param3-name} ${11:param4-des}:(${12:param4-type}) ${13:param4-name} is \n$0)'
+  set:
+    prefix: 'set'
+    body: '(set ${1:name} ${2:value})'
+  if:
+    prefix: 'if'
+    body: '(if (${1:condition})\n\t($0))'
+  ifelse:
+    prefix: 'ifelse'
+    body: '(if (${1:condition})\n\t(${2:ifbody})(else (${3:elsebody})))'
+
+  for:
+    prefix: 'for'
+    body: '(for ((set ${1:name} 0) (<= ${1} ${2:max}) (set ${1} (+ ${1} ${3:increase}))\n\t($0))'
+  # (for ((set i 1) (<= i 10) (set i (+ i 1)))
+  #    (puts i))
+  let:
+    prefix: 'let'
+    body: '(let (${1:variables})\n\t($0))'
+  "let value":
+    prefix: 'let1'
+    body: '(let ((${1:variable} ${2:value}))\n\t($0))'
+  progn:
+    prefix: 'progn'
+    body: '(progn\n\t$0)'
